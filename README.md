@@ -141,7 +141,7 @@ that allows anonymous logins.  The brider_testdata.py script by default can publ
 this broker for testing.
 
 ```aiignore
-$ docker compose up -d 
+$ docker compose -f docker-compose-mosquitto-only.yml up -d 
 ```
 After the broker is started, the script 'bridge_testdata.py' can be ran to generate test data
 to the broker.  The publish topic is 'system/status' which you will notice matches the 
