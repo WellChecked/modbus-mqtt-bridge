@@ -1,39 +1,45 @@
 [
   {
-    "topic": "system",
+    "topic": "system/status",
+    "jsonpath": "random",
+    "register": 41001,
+    "type": "float"
+  },
+  {
+    "topic": "system/status",
     "jsonpath": "cpu.percent",
-    "register": 41004,
+    "register": 41003,
     "type": "float"
   },
   {
-    "topic": "system",
+    "topic": "system/status",
     "jsonpath": "cpu.load_average.load_1m",
-    "register": 41006,
+    "register": 41005,
     "type": "float"
   },
   {
-    "topic": "system",
+    "topic": "system/status",
     "jsonpath": "cpu.load_average.load_5m",
-    "register": 41008,
+    "register": 41007,
     "type": "float"
   },
   {
-    "topic": "system",
+    "topic": "system/status",
     "jsonpath": "cpu.load_average.load_15m",
-    "register": 41010,
+    "register": 41009,
     "type": "float"
   },
   {
-    "topic": "system",
+    "topic": "system/status",
     "jsonpath": "memory.swap.used",
-    "register": 41012,
+    "register": 41011,
     "type": "float",
     "getter": ":value / 1000000000"
   },
   {
-    "topic": "system",
+    "topic": "system/status",
     "jsonpath": "memory.virtual.used",
-    "register": 41014,
+    "register": 41013,
     "type": "float",
     "getter": ":value / 1000000000"
   }
