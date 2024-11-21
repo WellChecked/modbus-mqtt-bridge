@@ -13,7 +13,8 @@ RUN python3 -m pip install --no-cache-dir -r /app/requirements.txt && rm -rf /ro
 COPY app/ /app/app
 COPY config/ /app/config
 COPY main.py /app
-COPY cmd.py /app
+COPY bridge.py /app
+COPY bridge-test_data.py /app
 
 WORKDIR /app
 

@@ -11,8 +11,26 @@ services:
       - ./mosquitto/data:/mosquitto/data
       - ./mosquitto/log:/mosquitto/log
     networks:
-      - test_net
+      - bridge_net
+
+  bridge:
+    image: wcsi/modbus-mqtt-bridge
+    container_name: modbus-bridge
+    build:
+      context: .
+    depends_on:
+      - mosquitto
+    ports:
+      - "1502:502"
+    environment:
+      - MQTT_HOSTNAME=mosquitto
+      - MQTT_PORT=1883
+      - CONFIG_FILE=/app/config/registers.json
+    volumes:
+      - ./config/registers.json:/app/config/registers.json
+    networks:
+      - bridge_net
 
 networks:
-  test_net:
+  bridge_net:
     driver: bridge

@@ -155,18 +155,15 @@ $ python3 bridge_testdata.py
 
 The defaults for bridge.py will startup assuming a local mqtt broker with anonymous logins.
 
-```aiignore
-$ python3 bridge.py
-```
+> $ python3 bridge.py
+
+> $ python3 bridge.py --help   # for all available options
+
 NOTE: the broker.py script must be started in the root of the project since it is assuming
 the configuration is in './config' directory.
 
 ## Docker
 
-```aiignore
-$ docker run -t wcsi/modbus-mqtt-bridge \
-    -p 1502:502 -v ./config/registers.json:/app/config --env-file vars.env 
-```
 **vars.env** 
 
 ```aiignore
@@ -182,20 +179,28 @@ MODBUS_PORT=<modbus_tcp_port>
 
 ```aiignore
 services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: test-mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+    networks:
+      - bridge_net
   bridge:
     image: wcsi/modbus-mqtt-bridge
     container_name: modbus-bridge
+    build:
+      context: .
     ports:
       - 502:502
     environment:
-      - MQTT_HOSTNAME=<mqtt_host>
-      - MQTT_PORT=<mqtt_port>
-      - MQTT_USERNAME=<mqtt_user>
-      - MQTT_PASSWORD=<mqtt_pass>
-      - MQTT_TOPIC_PREFIX=<mqtt_topic_prefix>
-      - CONFIG_FILE=<configuration_json_filename>
-      - MODBUS_PORT=<modbus_port>
+      - MQTT_HOSTNAME=mosquitto
+      - MQTT_PORT=1883
     volumes:
-      - ./config:/app/config
+      - ./config/registers.json:/app/config/registers.json
 ```
 The topic prefix is prepending to every topic found within the registers configuration json file.
