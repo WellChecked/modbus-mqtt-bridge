@@ -203,4 +203,5 @@ services:
     volumes:
       - ./config/registers.json:/app/config/registers.json
 ```
-The topic prefix is prepending to every topic found within the registers configuration json file.
+NOTE: Any topic prefix defined within the options at startup is prepending to every topic found within 
+the registers configuration json file.
