@@ -159,7 +159,7 @@ The defaults for bridge.py will startup assuming a local mqtt broker with anonym
 
 > $ python3 bridge.py --help   # for all available options
 
-NOTE: the broker.py script must be started in the root of the project since it is assuming
+NOTE: the 'bridge.py' script must be started in the root of the project since it is assuming
 the configuration is in './config' directory.
 
 ## Docker
