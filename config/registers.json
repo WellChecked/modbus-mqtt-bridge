@@ -1,0 +1,40 @@
+[
+  {
+    "topic": "system",
+    "jsonpath": "cpu.percent",
+    "register": 41004,
+    "type": "float"
+  },
+  {
+    "topic": "system",
+    "jsonpath": "cpu.load_average.load_1m",
+    "register": 41006,
+    "type": "float"
+  },
+  {
+    "topic": "system",
+    "jsonpath": "cpu.load_average.load_5m",
+    "register": 41008,
+    "type": "float"
+  },
+  {
+    "topic": "system",
+    "jsonpath": "cpu.load_average.load_15m",
+    "register": 41010,
+    "type": "float"
+  },
+  {
+    "topic": "system",
+    "jsonpath": "memory.swap.used",
+    "register": 41012,
+    "type": "float",
+    "getter": ":value / 1000000000"
+  },
+  {
+    "topic": "system",
+    "jsonpath": "memory.virtual.used",
+    "register": 41014,
+    "type": "float",
+    "getter": ":value / 1000000000"
+  }
+]
