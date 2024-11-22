@@ -20,7 +20,7 @@ def load_subscriptions(mqtt_topic_prefix, config_file):
         subscriptions = []
         configurations = json.load(f)
         for configuration in configurations:
-            topic = f"{os.path.join(mqtt_topic_prefix, configuration['topic'])}" if mqtt_topic_prefix else configuration['topic']
+            topic = f"{mqtt_topic_prefix}/{configuration['topic']}" if mqtt_topic_prefix else configuration['topic']
             try:
                 register_address = int(configuration['register'])
                 modbus_address = register_address - 40001
