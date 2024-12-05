@@ -119,6 +119,7 @@ json document.  This can be used to scale values up or down.
 #### Mac
 
 - [ModbusTcpClient](https://apps.apple.com/hr/app/modbus-tcp-client/id1635888824?mt=12)
+  - [Modbus Client Setup Screenshot Example](./assets/Screenshot 2024-12-05 at 3.13.53 PM.png)
 
 #### Linux
 
@@ -148,8 +149,12 @@ published to the broker.  The publish topic is 'system/status' which you will no
 topics within the 'config/registers.json' file.
 
 ```aiignore
-$ python3 bridge_testdata.py
+$ python3 bridge-test_data.py
 ```
+
+#### Modbus Client for Testing (from ModbusTcpClient)
+
+[Modbus Client Setup Screenshot Example](./assets/Screenshot 2024-12-05 at 3.13.53 PM.png)
 
 ### Run
 

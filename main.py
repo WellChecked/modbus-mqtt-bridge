@@ -41,14 +41,14 @@ def load_subscriptions(mqtt_topic_prefix, config_file):
         return subscriptions
 
 
-MQTT_HOSTNAME = os.getenv('MQTT_HOSTNAME')
+MQTT_HOSTNAME = os.getenv('MQTT_HOSTNAME', "127.0.0.1")
 MQTT_PORT = int(os.getenv('MQTT_PORT', 1883))
 MQTT_USERNAME = os.getenv('MQTT_USERNAME')
 MQTT_PASSWORD = os.getenv('MQTT_PASSWORD')
 MQTT_TOPIC_PREFIX = os.getenv('MQTT_TOPIC_PREFIX')
 CONFIG_FILE = os.getenv('CONFIG_FILE', 'config/registers.json')
 MODBUS_BIND_IP = os.getenv('MODBUS_BIND_IP', '0.0.0.0')
-MODBUS_PORT = int(os.getenv('MODBUS_PORT', 502))
+MODBUS_PORT = int(os.getenv('MODBUS_PORT', 1502))
 
 
 def main(
